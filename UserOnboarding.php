@@ -1,4 +1,4 @@
-<?php include('server.php'); 
+<?php include('userOnboardingServer.php'); 
 
   //Only users that are logged in can view this page
   if (empty($_SESSION['username'])) {
@@ -33,6 +33,8 @@
       background-color: #f1f1f1;
       height: 100%;
     }
+
+
 
     /* Set black background color, white text and some padding */
     footer {
@@ -122,52 +124,184 @@
   <div class="row content">
 
     <!-- Left Sidebar -->
-    <div class="col-sm-2 sidenav" style="height:100%">
+    <div class="col-sm-2 sidenav" style="height:120%">
     
     </div>
 
     <!-- Center Body -->
-    <div class="col-sm-8 text-left">
+    <div class="col-sm-8 text-left" style="min-height: 95%; margin-bottom: 5%">
 
-      <form method="post" action="UserOnboarding.php">
+        <form method="post" action="UserOnboarding.php">
           <fieldset>
-            <legend>Sign Up</legend>
-              <!-- display validation for form fields -->
-              <?php include('errors.php'); ?>
-              <p>
-                <label>First Name:</label>
-                <input type="text" name="first_name" value="<?php echo $first_name; ?>"/><br/>
+            <legend> <h2> Hey <?php echo $username; ?>, tell us about yourself!</h2> </legend>
+                <table>
+                  
+                  <tr height=:40 align="center">
+                    <td colspan="2"><h4>Games and such.</h4></td>
+                  </tr>
 
-                <label>Last Name:</label>
-                <input type="text" name="last_name" value="<?php echo $last_name; ?>"/><br/>
+                  <!-- Form box for Game, is filled from the DB -->
+                <tr height="40">
+                  <td width="30%"> <label>Game you want to play:</label> </td>
+                  <td>
+                    <select name="GameID" id="game" class="form-control">
+                      <option value="Default">Select a Game</option>
+                      <?php echo $options;?>
+                    </select>
+                  </td>
+                </tr>
 
-                <label>Profile Pic:</label>
-                <input type="file" name="profile_pic"><br/>
+                <tr height="40">
+                  <td width="30%"> <label>Willing to be the Game Master?</label></td>
+                  <td>
+                    <select name="gm" id="canGM" class="form-control">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                      <option value="maybe">No Preference</option>                      
+                    </select>
+                  </td>
+                </tr>
 
-                <label>Address:</label>
-                <input type="text" name="address"><br/>
+                <!-- Form box for Metting Place -->
+                <tr height="40">
+                  <td width="30%"> <label>Where do you want to meet:</label> </td>
+                  <td>
+                    <select name="Location" id="meet" class="form-control">
+                      <option value="Default">Select a Place</option>
+                      <option value="home">At a player's place.</option>
+                      <option value="gameStore">At a game store.</option>
+                      <option value="local">In person, but no preference.</option>
+                      <option value="online">Online</option>
+                    </select>
+                  </td>
+                </tr>
 
-                <label>City:</label>
-                <input type="text" name="city"><br/>
+                <tr height="60" align="center">
+                  <td colspan="2"><h4>What is your schedule?</h4>Leave default if not all are needed.</td>
+                </tr>
+              
+                <!-- Form box for Day -->
+                <tr height="40">
+                  <td width="30%"> <label>Day 1:</label> </td>
+                  <td> 
+                    <select name="day" id="day1" class="form-control">
+                      <option value="Default">Day</option>
+                      <option value="Sunday">Sunday</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                    </select>
+                  </td>
+                </tr>
 
-                <label>State:</label>
-                <input type="text" name="state" value="Full State Name"><br/>
+                <!-- Form box for Time -->
+                <tr height="40">
+                  <td width="30%"> <label>Time 1:</label> </td>
+                  <td>
+                    <select name="time" id="time1" class="form-control">
+                      <option value="Default">Select a Time</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Afternoon">Afternoon</option>
+                      <option value="Evening">Evening</option>
+                      <option value="Night">Night</option>
+                      <option value="Anytime">Anytime</option>
+                    </select>
+                  </td>
+                </tr>
 
-                <label>Zip Code:</label>
-                <input type="text" name="zip"><br/>
+                <!-- Form box for Day -->
+                <tr height="40">
+                  <td width="30%"> <label>Day 2:</label> </td>
+                  <td> 
+                    <select name="day2" id="day2" class="form-control">
+                      <option value="Default">Day</option>
+                      <option value="Sunday">Sunday</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                    </select>
+                  </td>
+                </tr>
 
-                <label>Country:</label>
-                <input type="text" name="country" value="Full Country Name"><br/><br/>
+                <!-- Form box for Time -->
+                <tr height="40">
+                  <td width="30%"> <label>Time 2:</label> </td>
+                  <td>
+                    <select name="time2" id="time2" class="form-control">
+                      <option value="Default">Select a Time</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Afternoon">Afternoon</option>
+                      <option value="Evening">Evening</option>
+                      <option value="Night">Night</option>
+                      <option value="Anytime">Anytime</option>
+                    </select>
+                  </td>
+                </tr>
 
-                <button type="submit" name="finish" class="btn">Finish</button>
-              </p>
+                <!-- Form box for Day -->
+                <tr height="40">
+                  <td width="30%"> <label>Day 3:</label> </td>
+                  <td witch="70%"> 
+                    <select name="day3" id="day3" class="form-control">
+                      <option value="Default">Day</option>
+                      <option value="Sunday">Sunday</option>
+                      <option value="Monday">Monday</option>
+                      <option value="Tuesday">Tuesday</option>
+                      <option value="Wednesday">Wednesday</option>
+                      <option value="Thursday">Thursday</option>
+                      <option value="Friday">Friday</option>
+                      <option value="Saturday">Saturday</option>
+                    </select>
+                  </td>
+                </tr>
+
+                <!-- Form box for Time -->
+                <tr height="40">
+                  <td width="30%"> <label>Time 3:</label> </td>
+                  <td>
+                    <select name="time3" id="time3" class="form-control">
+                      <option value="Default">Select a Time</option>
+                      <option value="Morning">Morning</option>
+                      <option value="Afternoon">Afternoon</option>
+                      <option value="Evening">Evening</option>
+                      <option value="Night">Night</option>
+                      <option value="Anytime">Anytime</option>
+                    </select>
+                  </td>
+                </tr>
+
+
+                <tr height=:40 align="center">
+                  <td colspan="2"><h4> Profile Picture and Description:</h4></td>
+                </tr>
+
+                <tr height="40">
+                  <td> <label>Description:</label> </td>
+                </tr>
+                <tr>
+                  <td colspan="2"> <textarea class="form-control" rows="10" name="desc" id="desc" maxlength="500" style="resize: none;"></textarea> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="50%" align="center"> <button type="submit" name="submitProfile" id="submit" class="btn">Submit</button> </td>
+                  <td align="center"> <button type="reset" class="btn">Reset</button> </td>
+                </tr>
+
+                </table>
+                
+
           </fieldset>
         </form>
-
     </div>
 
     <!-- Right Sidebar -->
-    <div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav" style="height:120%">
       
     </div>
 

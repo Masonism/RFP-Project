@@ -1,4 +1,6 @@
-<?php include('groupServer.php'); 
+<?php 
+  // include the server functions
+  include('groupServer.php'); 
 
   //Only users that are logged in can view this page
   if (empty($_SESSION['username'])) {
@@ -223,7 +225,7 @@
 
       <h2>Browse Groups:</h2>
 
-      <table style="text-align: center;"">
+      <table style="text-align: center;">
         
 
           <?php 

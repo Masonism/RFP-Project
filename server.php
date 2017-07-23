@@ -5,10 +5,8 @@
 	$email = "";
 	$first_name = "";
 	$last_name = "";
-	$address = "";
 	$city = "";
 	$state = "";
-	$zip = "";
 	$country = "";
 	$errors = array();
 
@@ -23,10 +21,10 @@
 		$password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 		$first_name = mysqli_real_escape_string($db, $_POST['first_name']);
 		$last_name = mysqli_real_escape_string($db, $_POST['last_name']);
-		$address = mysqli_real_escape_string($db, $_POST['address']);
+		// $address = mysqli_real_escape_string($db, $_POST['address']);
 		$city = mysqli_real_escape_string($db, $_POST['city']);
 		$state = mysqli_real_escape_string($db, $_POST['state']);
-		$zip = mysqli_real_escape_string($db, $_POST['zip']);
+		// $zip = mysqli_real_escape_string($db, $_POST['zip']);
 		$country = mysqli_real_escape_string($db, $_POST['country']);
 
 		//validate all fields
@@ -43,7 +41,7 @@
 			array_push($errors, "Last Name is required");
 		}
 		if (empty($password_1)) {
-			array_push($errors, "Passowrd is required");
+			array_push($errors, "Password is required");
 		}
 		//password confirmation check
 		if ($password_1 != $password_2) {
@@ -54,11 +52,18 @@
 		if (count($errors) == 0) {
 			//hash the password to store the hashed value
 			$password = hash('sha256', $password_1);
-			$sql = "INSERT INTO User (Username, Email, Password, FirstName, LastName, Address, City, State, Zip, Country) VALUES ('$username', '$email', '$password', '$first_name', '$last_name', '$address', '$city', '$state', '$zip', '$country')";
-			mysqli_query($db, $sql);
-			$_SESSION['username'] = $username;
-			$_Session['success'] = "Welcome back!";
-			header('location: home.php'); //Take to home page after login
+			$sql = "INSERT INTO User (Username, Email, Password, FirstName, LastName, City, State, Country) VALUES ('$username', '$email', '$password', '$first_name', '$last_name', '$city', '$state', '$country')";
+			$res = mysqli_query($db, $sql);
+			if (!$res)
+			{
+				echo mysqli_error($db);
+			}
+			else
+			{
+				$_SESSION['username'] = $username;
+				$_Session['success'] = "Welcome back!";
+				header('location: UserOnboarding.php'); //Take to onboarding page after login
+			}
 		}
 	}
 
@@ -66,7 +71,6 @@
 	if (isset($_POST['login'])) {
 		$username = mysqli_real_escape_string($db, $_POST['username']);
 		$password = mysqli_real_escape_string($db, $_POST['password']);
-		
 
 		//validate all fields
 		if (empty($username)) {

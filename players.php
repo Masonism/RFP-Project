@@ -138,7 +138,7 @@
 
           <fieldset>
 
-            <legend>Search Users</legend>
+            <legend>Search Players</legend>
 
               <table>
 
@@ -223,26 +223,26 @@
 
     <!-- Center Body -->
     <div class="col-sm-8 text-left">
+
     <h2>Browse Players:</h2>
 
-      <table style="text-align: center;"">
+      <table style="text-align: center;">
 
         <?php
 
           echo $display;
   
         ?>
-
+        <!--
         <tr>
-         <!-- 
          <td colspan="2" style="text-align: left">
             <a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Previous</a>
           </td>
           <td colspan="2" style="text-align: right">
             <a href="#"><span class="glyphicon glyphicon-arrow-right"></span> Next</a>
           </td>
-          -->
         </tr>
+        -->
       </table>
     </div>
 

@@ -64,7 +64,7 @@
 
 	        while ($row = $name->fetch_assoc())
   			{
-		        $out = $out . '<td> <a data-toggle="modal" href="viewOtherPlayer.php?user=' . $row['Username'] . '"> 
+		        $out = $out . '<td> <a href="viewOtherPlayer.php?user=' . $row['Username'] . '"> 
 		            <img src="pictures/Male-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
 		             <h4>' . $row['Username'] . '</h4></a></td>';
 
@@ -101,8 +101,8 @@
 
 			while ($row = $name->fetch_assoc())
 			{
-				$out =  $out . '<td> <a data-toggle="modal" href="viewOtherPlayer.php?user=' . $row['Username'] . '"> 
-				    <img src="pictures/Male-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
+				$out =  $out . '<td> <a href="viewOtherPlayer.php?user=' . $row['Username'] . '"> 
+				    <img src="pictures/Female-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
 				     <h4 class="h4Player">' . $row['Username'] . '</h4></a></td>';
 
 				$count = $count + 1;

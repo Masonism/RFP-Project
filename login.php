@@ -118,34 +118,49 @@
 
     </div>
 
-    <div class="col-sm-8 text-left"> 
-      <form method="post" action="login.php">
+    <div class="col-sm-8 text-left">
+      <div class="col-sm-4">
+        <form method="post" action="login.php">
+          <fieldset>
+            <legend> <h2>Login</h2> </legend>
+            <!-- display validation for form fields -->
+            <?php include('errors.php'); ?>
+            
+            <table>
+              <tr height="40">
+                <td width="30%"> <label>Username:</label> </td>
+                <td> <input type="text" class="form-control" name="username"/> </td>
+              </tr>
+
+              <tr height="40">
+                <td width="30%"> <label>Password:</label> </td>
+                <td> <input type="password" class="form-control" name="password"/> </td>
+              </tr>
+
+              <tr height="40">
+                <td width="50%" align="center"> <button name="login" class="btn">login</button> </td>
+                <td width="50%" align="center"> <button type="reset" class="btn">Reset</button> </td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+      
+      <div class="col-sm-4">
         <fieldset>
-          <legend>Login</legend>
-          <!-- display validation for form fields -->
-          <?php include('errors.php'); ?>
+          <legend><h2>Sign Up</h2></legend>
+
           <p>
-            <label>Username:</label>
-            <input type="text" name="username"/><br/>
-            <label>Password:</label>
-            <input type="password" name="password"/><br/><br/>
-            <button type="submit" name="login" class="btn">Login</button>
+            If you haven't signed up yet, click here to get started!
           </p>
 
+          <a href="register.php" style="color: black;"><span class="glyphicon glyphicon-triangle-right"></span>Sign Up</a>
+
         </fieldset>
-      </form>
-
-      <fieldset>
-        <legend>Sign Up</legend>
-
-        <p>
-          If you haven't signed up yet, click here to get started!
-        </p>
-
-        <a href="register.php"><span class="glyphicon glyphicon-triangle-right"></span>Sign Up</a>
-
-      </fieldset>
+      </div>
+      
     </div>
+
     <div class="col-sm-2 sidenav">
      
     </div>

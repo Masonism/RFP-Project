@@ -1,4 +1,6 @@
-<?php include('server.php'); ?>
+<?php include('server.php'); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,69 +117,85 @@
     </div>
 
     <div class="col-sm-8 text-left"> 
-      <form method="post" action="register.php">
+      <div class="col-sm-4">
+        <form method="post" action="register.php">
+          <fieldset>
+            <legend><h2>Sign Up</h2></legend>
+              <!-- display validation for form fields -->
+              <?php include('errors.php'); ?>
+              <table>
+                <tr height="40">
+                  <td width="30%"> <label>Username:</label> </td>
+                  <td> <input type="text" name="username" class="form-control" value="<?php echo $username; ?>"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Email:</label> </td>
+                  <td> <input type="text" name="email" class="form-control" value="<?php echo $email; ?>"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Password:</label> </td>
+                  <td> <input type="password" class="form-control" name="password_1"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Confirm Password:</label> </td>
+                  <td> <input type="password" class="form-control" name="password_2"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>First Name:</label> </td>
+                  <td> <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Last Name:</label> </td>
+                  <td> <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>"/> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>City:</label> </td>
+                  <td> <input type="text" name="city" class="form-control"> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>State:</label> </td>
+                  <td> <input type="text" name="state" class="form-control" value="Full State Name"> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="30%"> <label>Country:</label> </td>
+                  <td> <input type="text" name="country" class="form-control" value="Full Country Name"> </td>
+                </tr>
+
+                <tr height="40">
+                  <td width="50%" align="center"> <button type="submit" name="submit" class="btn">Submit</button> </td>
+                  <td width="50%" align="center"> <button type="reset" class="btn">Reset</button> </td>
+                </tr>
+                
+              </table>
+          </fieldset>
+        </form>
+      </div>
+      
+      <div class=col-sm-4>
         <fieldset>
-          <legend>Sign Up</legend>
-            <!-- display validation for form fields -->
-            <?php include('errors.php'); ?>
-            <p>
-              <label>Username:</label>
-              <input type="text" name="username" value="<?php echo $username; ?>"/><br/>
-
-              <label>Email:</label>
-              <input type="text" name="email" value="<?php echo $email; ?>"/><br/>
-
-              <label>Password:</label>
-              <input type="password" name="password_1"/><br/>
-
-              <label>Confirm Password:</label>
-              <input type="password" name="password_2"/><br/>
-
-              <label>First Name:</label>
-              <input type="text" name="first_name" value="<?php echo $first_name; ?>"/><br/>
-
-              <label>Last Name:</label>
-              <input type="text" name="last_name" value="<?php echo $last_name; ?>"/><br/>
-
-              <label>Address:</label>
-              <input type="text" name="address"><br/>
-
-              <label>City:</label>
-              <input type="text" name="city"><br/>
-
-              <label>State:</label>
-              <input type="text" name="state" value="Full State Name"><br/>
-
-              <label>Zip Code:</label>
-              <input type="text" name="zip"><br/>
-
-              <label>Country:</label>
-              <input type="text" name="country" value="Full Country Name"><br/><br/>
-
-              <button type="submit" name="submit" class="btn">Submit</button>
-            </p>
-        </fieldset>
-      </form>
-
-      <fieldset>
-        <legend>Login</legend>
+        <legend><h2>Login</h2></legend>
 
         <p>
           If you already have an account, click here to login!
         </p>
 
-        <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        <a href="login.php" style="color:black;"><span class="glyphicon glyphicon-log-in"></span> Login</a>
 
       </fieldset>
+      </div>
+      
       
     </div>
     <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
+
     </div>
   </div>
 </div>

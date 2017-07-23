@@ -1,9 +1,5 @@
 <?php include('server.php'); 
 
-  //Only users that are logged in can view this page
-  if (empty($_SESSION['username'])) {
-    header('location: login.php');
-  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,19 +134,36 @@
       <?php endif ?>
 
       <?php if (isset($_SESSION["username"])): ?>
-        <p>Welcome back <strong><?php echo $_SESSION['username']; ?></strong></p>
-      <?php endif ?>
+
+        <p> <h1>Welcome Back <strong><?php echo $_SESSION['username']; ?> </strong> </h1> </p>
+
+        <p><h4> Roll For Party is still in Alpha release. Please look forward to new features being added. </h4> </p>
+
+      <?php else : ?> 
+
+        <p> <h2> Welcome </h2> </p>
+
+        <p><h4>Roll For Party is a tabletop matchmaker. Whether you are a veteran player or someone who is looking for their first adventure we've got your back! <br/><br/>
+
+        Tabletop roleplaying games and new or classic board games are all welcome. <br/><br/>
+
+        Sign up and find an adventure today!</h4></p>
+
+        <h3> Alpha Home Page </h3>
+        <p> <h4>Roll For Party is still in Alpha release. Please look forward to new features being added.</h4> </p>
+
+        <br/>
+
+        <h4>
+          <a href="register.php" style="color:black;"><span class="glyphicon glyphicon-triangle-right"></span>Sign Up</a>
+          <a href="login.php" style="color:black; padding-left: 50px;"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </h4>  
+
+      <?php endif; ?>
+
+      </div>
     </div>
 
-      <h1>Welcome</h1>
-      <p>Roll For Party is a tabletop matchmaker. Whether you are a veteran player or someone who is looking for their first adventure we've got your back! <br/><br/>
-
-      Tabletop roleplaying games and new or classic board games are all welcome. <br/><br/>
-
-      Sign up and find an adventure today!</p>
-      <h3>Test Home Page</h3>
-      <p>This is a test home page! Please look forward to the full release.</p>
-    </div>
     <div class="col-sm-2 sidenav">
     
     </div>

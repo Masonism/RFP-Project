@@ -103,7 +103,7 @@
 
 			while ($row = $name->fetch_assoc())
 			{
-				$out =  $out . '<td> <a href="viewOtherGroup.php"?groupName=' . $row['Name'] . '> 
+				$out =  $out . '<td> <a href="viewOtherGroup.php"?groupName=' . $row['Name'] . '"> 
 				    <img src="pictures/Group-Generic-Photo.jpg" alt="IMG" class="playerIcon"/><br/>
 				     <h4 class="h4Group">' . $row['Name'] . '</h4></a></td>';
 
